@@ -4,11 +4,14 @@ import './LoginForm.css';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import logoBanner from './asset/bg-logo-banner.jpg';
+import { useDispatch } from 'react-redux';
+import { loginSubmit } from '../store/actions';
 
 function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigaTo = useNavigate();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handelGoogle = () => {
     window.open('http://localhost:5000/api/v1/auth/google', '_self');
@@ -21,23 +24,18 @@ function LoginForm() {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Gửi yêu cầu đăng nhập đến API
-    axios
-      .post('http://localhost:5000/api/v1/auth/login', {
-        email: email,
-        password: password,
-      })
-      .then((response) => {
-        // Xử lý phản hồi thành công
-        navigaTo('/dashboard');
-      })
-      .catch((error) => {
-        // Xử lý lỗi
-        alert('that bai');
-      });
+    // Gọi action creator loginSubmit từ Redux store để xử lý đăng nhập
+    try {
+      await dispatch(loginSubmit(email, password));
+      // Nếu đăng nhập thành công, điều hướng đến trang dashboard
+      navigate('/dashboard');
+    } catch (error) {
+      // Xử lý lỗi nếu có
+      console.error('Đăng nhập không thành công:', error);
+    }
   };
   return (
     <div className="wrapper">

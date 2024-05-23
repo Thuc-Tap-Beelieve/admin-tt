@@ -78,3 +78,21 @@
 .admin-sidebar__menu__sub__item a:hover {
   background-color: #555;
 }
+/* logout */
+.admin-sidebar__user .button-logout-sidebars {
+  margin-left: 40px;
+  padding: 10px 5px;
+  background-color: #b42c2c;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 40%; /* Make button full width */
+  text-align: left; /* Align text to the left */
+}
+
+.admin-sidebar__user .button-logout-sidebars:hover {
+  background-color: #FF473C;
+}

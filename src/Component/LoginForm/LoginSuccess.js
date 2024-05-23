@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react';
-import { loginSuccess } from '../store/actions/authAction';
+import { loginSuccess } from '../store/actions';
 import { useParams, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-function LoginSuccess() {
-  const { userID } = useParams();
+const LoginSuccess = () => {
   const dispath = useDispatch();
+
+  const { userID } = useParams();
   const { isLoggedIn } = useSelector((state) => state.auth);
   useEffect(() => {
     dispath(loginSuccess(userID));
   }, []);
 
   return <div>{isLoggedIn && <Navigate to={'/dashboard'} replace={true} />}</div>;
-}
+};
 
 export default LoginSuccess;

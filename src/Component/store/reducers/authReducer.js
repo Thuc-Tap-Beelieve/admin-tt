@@ -18,6 +18,12 @@ const authReducer = (state = initState, action) => {
         isLoggedIn: false,
         token: null,
       };
+    case actionTypes.LOGIN_SUBMIT:
+      return {
+        ...state,
+        isLoggedIn: true,
+        token: action.data,
+      };
     default:
       return state;
   }

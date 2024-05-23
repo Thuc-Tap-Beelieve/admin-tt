@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-// import { logOut } from '../store/actions/authAction';
 // import { useDispatch } from 'react-redux';
 import './AdminSideBar.css';
-
+import { useParams, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { logOut } from '../../../store/actions';
 const AdminSideBar = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  // state
   const [openMenu, setOpenMenu] = useState('');
+
+  const handleLogout = () => {
+    dispatch(logOut());
+    navigate('/dashboard', { replace: true });
+  };
 
   const handleMenuToggle = (menuName) => {
     setOpenMenu(openMenu === menuName ? '' : menuName);
@@ -20,6 +28,9 @@ const AdminSideBar = () => {
         {/* <div className="screen-test">
           <button onClick={() => dispath(logOut())}>Đăng xuất</button>
         </div> */}
+        <button className="button-logout-sidebars" onClick={handleLogout}>
+          Đăng xuất
+        </button>
       </div>
       <div className="admin-sidebar__menu">
         <div className="admin-sidebar__menu__item">
