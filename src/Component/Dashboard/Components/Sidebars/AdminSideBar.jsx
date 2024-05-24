@@ -34,7 +34,7 @@ const AdminSideBar = () => {
       </div>
       <div className="admin-sidebar__menu">
         <div className="admin-sidebar__menu__item">
-          <Link to="/admin/home" className="admin-sidebar__menu__dashboard">
+          <Link to="/dashboard" className="admin-sidebar__menu__dashboard">
             Trang chủ
           </Link>
         </div>

@@ -10,6 +10,7 @@ import { loginSubmit } from '../store/actions';
 function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -34,6 +35,7 @@ function LoginForm() {
       navigate('/dashboard');
     } catch (error) {
       // Xử lý lỗi nếu có
+      alert('Không tìm thấy người dùng');
       console.error('Đăng nhập không thành công:', error);
     }
   };
@@ -76,6 +78,7 @@ function LoginForm() {
               autoComplete="current-password"
             />
           </div>
+
           <button type="submit">Login</button>
         </form>
         <div className="remember-forgot">
