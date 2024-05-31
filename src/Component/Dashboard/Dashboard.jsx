@@ -1,6 +1,6 @@
 import React from 'react';
 import AdminSideBar from './Components/Sidebars/AdminSideBar';
-import contentPage from './Components/Pagecontent/contentPage';
+import ContentPage from './Components/Pagecontent/contentPage';
 import { useParams, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -10,12 +10,14 @@ function Dashboard() {
   return (
     <div>
       {isLoggedIn ? (
-        <div className="page-container">
-          <div className="page-sidebar-wrapper">
-            <AdminSideBar />
-          </div>
-          <div className="page-content-wrapper">
-            <contentPage />
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md">
+              <AdminSideBar />
+            </div>
+            <div className="col-md-10">
+              <ContentPage />
+            </div>
           </div>
         </div>
       ) : (

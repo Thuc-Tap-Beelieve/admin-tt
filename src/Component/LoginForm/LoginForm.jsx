@@ -40,64 +40,74 @@ function LoginForm() {
     }
   };
   return (
-    <div className="wrapper">
-      <div className="Logo-banner-login">
-        <img src={logoBanner} alt="bg-login" />
-        <div className="Footer-Div flex">
-          <span className="text">Dont have account ? </span>
-          <Link to={'/register'}>
-            <button className="btn-succes">Sign</button>
-          </Link>
+    <>
+      <div className="container-fluid vh-100 d-flex justify-content-center align-items-center">
+        <div className="row w-100 m-0">
+          <div className="col d-flex justify-content-center align-items-center">
+            <div className="Logo-banner-login text-center p-4">
+              <img src={logoBanner} alt="bg-login" className="img-fluid" />
+              <div className="Footer-Div d-flex mt-3 justify-content-center">
+                <span className="text">Don't have an account?</span>
+                <Link to="/register">
+                  <button className="btn btn-success ms-2">Sign Up</button>
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="col border border-2 border-primary d-flex justify-content-center align-items-center ">
+            <div className="loginform-rememberpas p-4">
+              <form onSubmit={handleSubmit}>
+                <h1 className="text-center">Login</h1>
+                <div className="input-box mb-3">
+                  <input
+                    type="email"
+                    name="email"
+                    id="id-email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={handleEmailChange}
+                    required
+                    autoComplete="current-email"
+                    className="form-control"
+                  />
+                </div>
+                <div className="input-box mb-3">
+                  <input
+                    type="password"
+                    name="password"
+                    id="id-password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={handlePasswordChange}
+                    required
+                    autoComplete="current-password"
+                    className="form-control"
+                  />
+                </div>
+                <button type="submit" className="btn btn-primary w-100">
+                  Login
+                </button>
+              </form>
+              <div className="remember-forgot d-flex justify-content-between mt-2">
+                <label htmlFor="remember">
+                  <input type="checkbox" id="remember" className="me-2" />
+                  Remember me
+                </label>
+                <a href="#">Forgot password</a>
+              </div>
+              <div className="label-hoac text-center mt-3">hoặc</div>
+              <div className="button-method-loggin d-flex flex-column justify-content-center align-items-center mt-3">
+                <button className="btn btn-outline-danger w-100 mb-2" onClick={handelGoogle}>
+                  Google
+                </button>
+                <button className="btn btn-outline-dark w-100 mb-2">X</button>
+                <button className="btn btn-outline-primary w-100">Facebook</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div className="loginform-rememberpas">
-        <form action="" onSubmit={handleSubmit}>
-          <h1>Login</h1>
-          <div className="input-box">
-            <input
-              type="email"
-              name="email"
-              id="id-email"
-              placeholder="email"
-              value={email}
-              onChange={handleEmailChange}
-              required
-              autoComplete="current-email"
-            />
-          </div>
-          <div className="input-box">
-            <input
-              type="password"
-              name="password"
-              id="id-password"
-              placeholder="password"
-              value={password}
-              onChange={handlePasswordChange}
-              required
-              autoComplete="current-password"
-            />
-          </div>
-
-          <button type="submit">Login</button>
-        </form>
-        <div className="remember-forgot">
-          <label htmlFor="remember">
-            <input type="checkbox" name="" id="" />
-            Rememberme
-          </label>
-          <a href="#">Forgot password</a>
-        </div>
-        <div className="label-hoac">hoặc</div>
-        <div className="button-method-loggin">
-          <button className="btn-method google-button" onClick={handelGoogle}>
-            Google
-          </button>
-          <button className="btn-method x-button">X</button>
-          <button className="btn-method facebook-button">Facebook</button>
-        </div>
-      </div>
-    </div>
+    </>
   );
 }
 

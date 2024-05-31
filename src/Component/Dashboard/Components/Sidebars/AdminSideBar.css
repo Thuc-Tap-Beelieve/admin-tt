@@ -2,28 +2,19 @@
   width: 250px;
   background-color: #333;
   color: #fff;
-  position: fixed; /* Sidebar sẽ cố định trên màn hình */
-  top: 0; /* Đặt sidebar ở phía trên cùng */
-  left: 0; /* Đặt sidebar ở phía bên trái */
-  height: 100%; /* Để sidebar có chiều cao bằng cả chiều cao của trang */
-  overflow-y: auto; /* Hiển thị thanh cuộn nếu nội dung quá dài */
-  padding-top: 20px; /* Khoảng cách từ đỉnh trang đến nội dung đầu tiên trong sidebar */
-}
-
-.admin-sidebar__logo {
-  padding: 20px;
-  border-bottom: 1px solid #555; /* Đường gạch chân phía dưới logo */
-}
-
-.admin-sidebar__logo img {
-  width: 100%;
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  bottom: 0; 
+  overflow-y: auto; 
+  padding-top: 60px; 
 }
 
 .admin-sidebar__user {
-  padding: 10px 20px;
+  padding: 20px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #555; /* Đường gạch chân phía dưới phần user */
+  border-bottom: 1px solid #555; 
 }
 
 .admin-sidebar__user img {
@@ -32,19 +23,18 @@
 }
 
 .admin-sidebar__menu {
-  align-items: center;
+  padding-bottom: 20px; 
 }
 
 .admin-sidebar__menu__item {
-  width: 100%;
   cursor: pointer;
   padding: 10px 20px;
   margin-bottom: 10px;
-  border-bottom: 1px solid #555; /* Đường gạch chân giữa các mục menu */
+  border-bottom: 1px solid #555; 
 }
 
 .admin-sidebar__menu__item:last-child {
-  border-bottom: none; /* Loại bỏ border-bottom của mục menu cuối cùng */
+  border-bottom: none; 
 }
 
 .admin-sidebar__menu__sub {
@@ -64,7 +54,6 @@
   background-color: #555;
 }
 
-/* Link styles */
 .admin-sidebar__menu__item a,
 .admin-sidebar__menu__sub__item a {
   color: #fff;
@@ -78,21 +67,9 @@
 .admin-sidebar__menu__sub__item a:hover {
   background-color: #555;
 }
-/* logout */
-.admin-sidebar__user .button-logout-sidebars {
-  margin-left: 40px;
-  padding: 10px 5px;
-  background-color: #b42c2c;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 40%; /* Make button full width */
-  text-align: left; /* Align text to the left */
-}
 
-.admin-sidebar__user .button-logout-sidebars:hover {
-  background-color: #FF473C;
+.button-logout-sidebars {
+  margin-left: auto; 
+  padding: 10px 20px;
+  background-color: #b42c2c;
 }
